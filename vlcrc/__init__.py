@@ -122,7 +122,7 @@ class VLCRemote(object):
             re.IGNORECASE | re.MULTILINE)
         match = self._command('status', fn_re, raw=True)
         fn = match.groupdict()['path']
-        return fn
+        return fn.decode("utf-8")
 
     def restart(self):
         self._command('seek', args=(0,))
@@ -143,7 +143,7 @@ class VLCRemote(object):
             re.IGNORECASE | re.MULTILINE)
         title = self._command('get_title', fn_re, raw=True)
         title = title.groupdict()['title']
-        return title
+        return title.decode("utf-8")
 
     def is_playing(self):
         fn_re = re.compile(
