@@ -608,16 +608,17 @@ class TraktForVLC(object):
 
                 try:
                     episode = series[int(seasonNumber)][int(currentEpisode)]
+
                     return self.set_video(
                         True,
                         series['seriesname'],
-                        series['firstaired'],
-                        episode['imdb_id'],
+                        series['firstAired'],
+                        episode['imdbId'],
                         duration,
                         percentage,
                         episode['seasonnumber'],
                         episode['episodenumber'],
-                        series['imdb_id'])
+                        series['imdbId'])
                 except:
                     self.log.warning("Episode : No valid episode found !")
                     self.log.debug("get_TV::Here's to help debug",
